@@ -1,0 +1,851 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    height: 3rem;
+    margin: 0;
+    padding: 0rem 2rem;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F2F2F2;
+    border: none;
+}
+
+.account_and_log_out {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.account_and_log_out a {
+    color: #000;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    margin: 0;
+    text-decoration: none;
+}
+
+.account_and_log_out a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+content {
+    display: flex;
+    padding: 1.5rem;
+    gap: 1rem;
+}
+
+content .nav_and_citation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6rem;
+}
+
+nav {
+    width: 15rem;
+    height: 42rem;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 1.5rem 0;
+    border-radius: 1.875rem;
+    border: 2px solid #000;
+    background: #FFF;
+}
+
+nav div {
+    display: flex;
+    flex-direction: column;
+}
+
+nav .pages {
+    display: inline-flex;
+    padding: 1.5rem 0rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+nav .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+nav .navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+nav .navigation a {
+    display: flex;
+    padding: 0.5rem 3rem 0.5rem 1rem;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    border-radius: 0.9375rem;
+}
+
+nav .navigation .current {
+    background: rgba(16, 40, 255, 0.20);
+}
+
+nav .navigation a h3 {
+    width: 7.3125rem;
+    font-weight: 400;
+}
+
+
+nav .navigation a img {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+nav .divider {
+    width: 180px;
+    height: 2px;
+    border-radius: 30px;
+    background: #D9D9D9;
+}
+
+nav .tags_list {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+nav .tags_list .tags {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+nav .tags_list .tags .tag {
+    display: flex;
+    flex-direction: row;
+    padding: 0.4rem 0.5rem;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+nav .tags_list .tags .tag form {
+    width: 1rem;
+    height: 1rem;
+}
+
+nav .tags_list .tags .tag img {
+    width: 0.9rem;
+    height: 0.9rem;
+}
+
+nav .tags_list .tags .tag button {
+    border: none;
+    background: none;
+    width: 1rem;
+    height: 1rem;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav a button {
+    display: inline-flex;
+    padding: 0.5rem 2rem;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 0.9375rem;
+    border: 1px solid #000;
+    background: #ffffff;
+    transition: 0.1s;
+}
+
+nav button:hover {
+    cursor: pointer;
+    transform: scale(0.99);
+}
+
+.page_content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.top {
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 1rem 0;
+}
+
+.location {
+    display: inline-flex;
+    padding: 0.5rem;
+    align-items: center;
+    gap: 1rem;
+}
+
+.location img {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.add_button {
+    display: inline-flex;
+    padding: 0.5rem 1rem;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid #000;
+    background: transparent;
+    text-decoration: none;
+    transition: 0.1s;
+}
+
+.add_button img {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.add_button:hover {
+    cursor: pointer;
+    transform: scale(0.99);
+}
+
+.homepage {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.home_box_title {
+    width: 100%;
+    margin-left: 2rem;
+    text-align: left;
+}
+
+.homepage .todo_and_habbits {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.homepage .todo_and_habbits .todo {
+    width: 100%;
+}
+
+
+.homepage .todo_and_habbits .habits {
+    width: 100%;
+}
+
+.small_note {
+    width: 95%;
+    height: 3rem;
+    padding: 0rem 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.9375rem;
+    border: 1px solid #000;
+}
+
+.homepage .todo_and_habbits .todo {
+    width: 98%;
+    height: 24.375rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 1.875rem;
+    border: 1px solid #000;
+    margin: 0;
+}
+
+.homepage .todo_and_habbits .habits {
+    width: 98%;
+    height: 24.375rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 1.875rem;
+    border: 1px solid #000;
+    margin: 0;
+}
+
+.homepage .notes {
+    width: 98%;
+    height: 24.375rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 1.875rem;
+    border: 1px solid #000;
+    margin: 0;
+}
+
+.task_habbit_or_note_title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.list_home {
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem
+}
+
+.homepage form {
+    width: 100%;
+}
+
+.homepage button {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.homepage .notes .list_home button:hover {
+    cursor: pointer;
+}
+
+.homepage .check {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.homepage .notes .list_home .note {
+    width: 94%;
+    height: 3rem;
+    padding: 0rem 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.9375rem;
+    border: 1px solid #000;
+}
+
+.tasks_head {
+    width: 100%;
+    height: 2rem;
+    padding: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #D9D9D9;
+}
+
+.tasks_head div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+}
+
+.tasks {
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.task {
+    display: flex;
+    width: 95%;
+    padding: 0.5rem 2.5%;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.9375rem;
+    border: 1px solid #000;
+}
+
+.task div .tag {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 0.3125rem;
+    background: #F00;
+}
+
+.task .task_name {
+    width: 46%;
+}
+
+.task div {
+    display: flex;
+    align-items: center;
+}
+
+.check {
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+}
+
+.task .submit {
+    border: none;
+    background: transparent;
+}
+
+.delete_icon {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.delete_icon:hover {
+    cursor: pointer;
+}
+
+.habbits_head {
+    width: 100%;
+    border-bottom: 2px solid #D9D9D9;
+}
+
+.habbits_section {
+    width: 100%;
+    padding: 1rem 0;
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.habbit {
+    display: inline-flex;
+    padding: 1rem;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 1.875rem;
+    border: 1px solid #000;
+}
+
+.habbit div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.habbit form button {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.habbit_view_buttons {
+    display: inline-flex;
+    align-items: center;
+}
+
+.habbit_view {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2.5rem;
+    padding: 2rem;
+}
+
+.habbit_view .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.habbit_tag {
+    margin-top: 0.75rem;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 0.9375rem;
+    border: 1px solid #D9D9D9;
+}
+
+.habbit_tag h2 {
+    font-weight: 400;
+}
+
+.add_task_form {
+    width: 32rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    padding: 2rem;
+}
+
+.textbox_and_name {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.date_and_tag {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 2rem;
+}
+
+.cancel_and_submit {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cancel {
+    color: #F00;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    padding: 0.5rem 1rem;
+    transition: 0.1s;
+}
+
+.cancel:hover {
+    cursor: pointer;
+    transform: scale(0.97);
+    border-radius: 0.75rem;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.input_field {
+    height: 3.5rem;
+    width: 100%;
+    border-radius: 0.9375rem;
+    border: 1px solid #000;
+    background: none;
+    color: #000;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-self: stretch;
+}
+
+.deco {
+    margin: 2rem;
+}
+
+.login_register {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+    padding: 4rem;
+    margin: 2rem;
+    border-radius: 1.875rem;
+    background: #FFF;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.login_fields {
+    width: 32rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5625rem;
+}
+
+.login_buttons {
+    display: flex;
+    width: 32rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login_buttons a {
+    color: #0047FF;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    text-decoration: none;
+}
+
+.login_buttons a:hover {
+    cursor: pointer;
+}
+
+.login_buttons button {
+    display: flex;
+    padding: 0.75rem 1.25rem;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid #000;
+    background: none;
+    transition: 0.2s;
+}
+
+.login_buttons button:hover {
+    cursor: pointer;
+    transform: scale(0.98)
+}
+
+.notes {
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.notes .note_list {
+    display: flex;
+    width: 95%;
+    height: auto;
+    padding: 0.5rem 2rem;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 0.9375rem;
+    border: 1px solid #000;
+    text-decoration: none;
+}
+
+.note_list button {
+    border: none;
+    background: transparent;
+    text-align: left;
+}
+
+.note_list button:hover {
+    cursor: pointer;
+}
+
+.note_list button div {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.note_list div {
+    display: flex;
+    align-items: center;
+}
+
+.note_list .note_title {
+    width: 100%;
+}
+
+.note_list .submit {
+    border: none;
+    background: transparent;
+}
+
+.note {
+    width: 98%;
+    padding: 0.5rem;
+    display: flex-start;
+    flex-direction: column;
+    align-items: center;
+}
+
+.note input {
+    width: 100%;
+    border: none;
+}
+
+.note textarea {
+    width: 100%;
+    border: none;
+}
+
+.note .tag_selector {
+    width: 10rem;
+    height: 2.5rem;
+    color: #000;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+}
+
+.note .title_field {
+    width: 82%;
+    color: #000;
+    font-family: 'Inter', sans-serif;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    overflow-wrap: break-word;
+}
+
+.note .body_field {
+    color: #000;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    margin: 0;
+    height: auto;
+    overflow-wrap: break-word;
+    height: 36rem;
+}
+
+.note .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem 0.5rem 1rem;
+    border-bottom: 1px solid #D9D9D9;
+}
+
+.note .body {
+    padding: 1rem;
+}
+
+select {
+    height: 3.5rem;
+    width: 100%;
+    border-radius: 0.9375rem;
+    border: 1px solid #000;
+    background: none;
+    color: #000;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-self: stretch;
+}
+
+h1 {
+    color: #000;
+    font-family: 'Inter', sans-serif;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    margin: 0;
+}
+
+h2 {
+    color: #000;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    margin: 0;
+}
+
+h3 {
+    color: #000;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    margin: 0;
+}
+
+h4 {
+    color: #000;
+    font-family: 'Inter', sans-serif;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    margin: 0;
+}
+
+h5 {
+    color: #D9D9D9;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    white-space: nowrap;
+    margin-left: 1rem;
+}
+
+p {
+    color: #000;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    margin: 0;
+}
+
+a {
+    color: #0047FF;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    text-decoration-line: underline;
+}
+
+a:hover {
+    cursor: pointer;
+}

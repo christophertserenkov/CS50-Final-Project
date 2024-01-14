@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block title %}Rename tags{% endblock %}
+
+{% block header %}
+    <div class="navigation">
+        <a href="/"><img src="static/Images/Home.png">
+            <h3>Home</h3>
+        </a>
+        <a href="/tasks"><img src="static/Images/To do list.png">
+            <h3>Tasks</h3>
+        </a>
+        <a href="/habbits"><img src="static/Images/Checked.png">
+            <h3>Habits</h3>
+        </a>
+        <a href="/notes"><img src="static/Images/Notes.png">
+            <h3>Notes</h3>
+        </a>
+    </div>
+{% endblock %}
+
+{% block main %}
+    <div class="page_content">
+        <div class="top">
+            <div class="location">
+                <img src="static/Images/Tag.png">
+                <h3>Rename tag</h3>
+            </div>
+        </div>
+        <div style="width: 100%; border-top: 2px solid #D9D9D9;"></div>
+        <form action="/rename_tag" method="post" class="add_task_form">
+            <input type="text" name="action" value="update" style="display: none;" readonly>
+            <input type="text" name="tag_id" value="{{id}}" style="display: none;" readonly>
+            <h1>Rename Tag ({{name}})</h1>
+            <div class="textbox_and_name">
+                <h3>Tag name</h3>
+                <input type="text" name="tag_name" class="input_field" maxlength="13" autofocus>
+            </div>
+            {% if message %}
+                <p style="color: #FF0000; text-align: center;">Enter new tag name</p>
+            {% endif %}
+            <div class="cancel_and_submit">
+                <button class="cancel">Cancel</button>
+                <button type="submit" class="add_button"><img src="static/Images/edit.png">
+                    <p>Rename tag</p>
+                </button>
+            </div>
+            <p>{{tag_list}}</p>
+        </form>
+{% endblock %}

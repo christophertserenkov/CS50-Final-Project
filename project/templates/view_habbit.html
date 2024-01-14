@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block title %}Habits{% endblock %}
+
+{% block header %}
+    <div class="navigation">
+        <a href="/"><img src="static/Images/Home.png">
+            <h3>Home</h3>
+        </a>
+        <a href="/tasks"><img src="static/Images/To do list.png">
+            <h3>Tasks</h3>
+        </a>
+        <a href="/habbits" class="current"><img src="static/Images/Checked.png">
+            <h3>Habits</h3>
+        </a>
+        <a href="/notes"><img src="static/Images/Notes.png">
+            <h3>Notes</h3>
+        </a>
+    </div>
+{% endblock %}
+
+{% block main %}
+    <div class="page_content">
+        <div class="top">
+            <div class="location">
+                <img src="static/Images/Checked.png">
+                <h3>Habits / View habit</h3>
+            </div>
+            <div class="habbit_view_buttons">
+                <form action="/delete_habit" method="post">
+                    <input type="text" name="habbit_id" value="{{habit.habbit_id}}" style="display: none;">
+                    <button type="submit" style="background: none; border: none;"><img class="delete_icon" src="static/Images/Trash.png"></button>
+                </form>
+                <a href="/habbits" style="margin: 1rem;"><img src="static/Images/close.svg" style="width: 1.5rem; height: 1.5rem; padding: 0.25rem;"></a>
+            </div>
+        </div>
+        <div style="width: 100%; border-top: 2px solid #D9D9D9;"></div>
+        <div class="habbit_view">
+            <h1>{{habit.name}}</h1>
+            <div class="info">
+                <h4>Start date: {{habit.start_date}}</h4>
+                <h4>Times completed: {{habit.times_completed}}</h4>
+                {% if habit.completed == 'True' %}
+                    <h4>Today: Completed</h4>
+                {% else %}
+                    <h4>Today: Not completed</h4>
+                {% endif %}
+            </div>
+            <div>
+                <h2>Tag:</h2>
+                <div class="habbit_tag">
+                    <div style="width: 1.5rem; height: 1.5rem; border-radius: 0.3125rem; background-color: {{ habit.tag_color }};"></div>
+                    <h2>{{habit.tag_name}}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

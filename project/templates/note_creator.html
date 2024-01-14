@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block title %}Notes{% endblock %}
+
+{% block header %}
+    <div class="navigation">
+        <a href="/"><img src="static/Images/Home.png">
+            <h3>Home</h3>
+        </a>
+        <a href="/tasks"><img src="static/Images/To do list.png">
+            <h3>Tasks</h3>
+        </a>
+        <a href="/habbits"><img src="static/Images/Checked.png">
+            <h3>Habits</h3>
+        </a>
+        <a href="/notes" class="current"><img src="static/Images/Notes.png">
+            <h3>Notes</h3>
+        </a>
+    </div>
+{% endblock %}
+
+{% block main %}
+    <div class="page_content">
+        <form action="/create_note" method="post" style="display: flex; flex-direction: column; width: 100%;">
+            <div class="top">
+                <div class="location">
+                    <img src="static/Images/Notes.png">
+                    <h3>Notes / Edit</h3>
+                </div>
+                <div>
+                    <button type="submit" class="add_button">
+                        <img src="static/Images/Bookmark.png">
+                        <p>Save and exit</p>
+                    </button>
+                </div>
+            </div>
+            <div class="note">
+                <div class="title">
+                    <input class="title_field" type="text" name="title" placeholder="Title" required autofocus>
+                    <select name="tag" class="tag_selector" required>
+                        <option value="" selected disabled>Select tag</option>
+                        {% for tag in tags %}
+                            <option value="{{ tag.id }}">{{ tag.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="body">
+                    <textarea class="body_field" type="text" name="body" placeholder="Content"></textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

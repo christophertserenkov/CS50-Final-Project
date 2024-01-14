@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block title %}Notes{% endblock %}
+
+{% block header %}
+    <div class="navigation">
+        <a href="/"><img src="static/Images/Home.png">
+            <h3>Home</h3>
+        </a>
+        <a href="/tasks"><img src="static/Images/To do list.png">
+            <h3>Tasks</h3>
+        </a>
+        <a href="/habbits"><img src="static/Images/Checked.png">
+            <h3>Habits</h3>
+        </a>
+        <a href="/notes" class="current"><img src="static/Images/Notes.png">
+            <h3>Notes</h3>
+        </a>
+    </div>
+{% endblock %}
+
+{% block main %}
+    <div class="page_content">
+        <div class="top">
+            <div class="location">
+                <img src="static/Images/Notes.png">
+                <h3>Notes</h3>
+            </div>
+            <div>
+                <a class="add_button" href="/create_note"><img src="static/Images/add.svg">
+                    <p>Create note</p>
+                </a>
+            </div>
+        </div>
+        <div class="tasks_head">
+            <div style="gap: 1rem;">
+                <h3>Tag</h3>
+                <h3>Name</h3>
+            </div>
+            <div style="gap: 8rem;">
+                <h3>Date created</h3>
+                <h3>Delete</h3>
+            </div>
+        </div>
+        <div class="notes">
+            {% for note in notes %}
+                <div class="note_list">
+                    <form action="/view_note" method="post">
+                        <input type="text" name="note_id" value="{{ note.note_id }}" style="display: none;">
+                        <button type="submit">
+                            <div style="gap: 1.5rem;">
+                                <div style="width: 1.25rem; height: 1.25rem; border-radius: 0.3125rem; background: {{ note.tag }};"></div>
+                                <h3 class="note_title">{{ note.title }}</h3>
+                            </div>
+                        </button>
+                    </form>
+                    <div style="gap: 5rem;">
+                        <h3>{{ note.date_created }}</h3>
+                        <form action="/notes" method="post">
+                            <input type="text" name="note_id" value="{{ note.note_id }}" readonly style="display: none;">
+                            <input type="text" name="action" value="delete_note" readonly style="display: none;">
+                            <button type="submit" class="submit"><img class="delete_icon" src="static/Images/Trash.png"></button>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

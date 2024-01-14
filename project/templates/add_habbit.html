@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block title %}Habits{% endblock %}
+
+{% block header %}
+    <div class="navigation">
+        <a href="/"><img src="static/Images/Home.png">
+            <h3>Home</h3>
+        </a>
+        <a href="/tasks"><img src="static/Images/To do list.png">
+            <h3>Tasks</h3>
+        </a>
+        <a href="/habbits" class="current"><img src="static/Images/Checked.png">
+            <h3>Habits</h3>
+        </a>
+        <a href="/notes"><img src="static/Images/Notes.png">
+            <h3>Notes</h3>
+        </a>
+    </div>
+{% endblock %}
+
+{% block main %}
+    <div class="page_content">
+        <div class="top">
+            <div class="location">
+                <img src="static/Images/Checked.png">
+                <h3>Habits / Add habit</h3>
+            </div>
+        </div>
+        <div style="width: 100%; border-top: 2px solid #D9D9D9;"></div>
+        <form action="/add_habbit" method="post" class="add_task_form">
+            <h1>Add Habit</h1>
+            <div class="textbox_and_name">
+                <h3>Habit name</h3>
+                <input type="text" name="habbit_name" class="input_field" maxlength="96" autofocus>
+            </div>
+            <div class="textbox_and_name" style="width: 40%;">
+                <h3>Tag</h3>
+                <select name="tag">
+                    <option value="" selected disabled>Select</option>
+                    {% for tag in tags %}
+                        <option value="{{ tag.id }}">{{ tag.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="cancel_and_submit">
+                <a class="cancel" href="/habbits">Cancel</a>
+                <button type="submit" class="add_button"><img src="static/Images/add.svg">
+                    <p>Add habit</p>
+                </button>
+            </div>
+        </form>
+{% endblock %}

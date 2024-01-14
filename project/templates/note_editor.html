@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block title %}Notes{% endblock %}
+
+{% block header %}
+    <div class="navigation">
+        <a href="/"><img src="static/Images/Home.png">
+            <h3>Home</h3>
+        </a>
+        <a href="/tasks"><img src="static/Images/To do list.png">
+            <h3>Tasks</h3>
+        </a>
+        <a href="/habbits"><img src="static/Images/Checked.png">
+            <h3>Habits</h3>
+        </a>
+        <a href="/notes" class="current"><img src="static/Images/Notes.png">
+            <h3>Notes</h3>
+        </a>
+    </div>
+{% endblock %}
+
+{% block main %}
+    <div class="page_content">
+        <form action="/edit_note" method="post" style="display: flex; flex-direction: column; width: 100%;">
+            <input type="text" name="action" value="update_note" readonly style="display: none;">
+            <div class="top">
+                <div class="location">
+                    <img src="static/Images/Notes.png" alt="Notes Icon">
+                    <h3>Notes / Edit</h3>
+                </div>
+                <div>
+                    <input type="text" name="note_id" value="{{ note['note_id'] }}" readonly style="display: none;">
+                    <button type="submit" class="add_button">
+                        <img src="static/Images/Bookmark.png" alt="Bookmark Icon">
+                        <p>Save and exit</p>
+                    </button>
+                </div>
+            </div>
+            <div class="note">
+                <div class="title">
+                    <input class="title_field" type="text" name="title" placeholder="Title" required value="{{ note['title'] }}" autofocus>
+                    <select name="tag" class="tag_selector" required>
+                        {% for tag in tags %}
+                            {% if tag.id == note['tag_id'] %}
+                                <option value="{{ tag.id }}" selected>{{ tag.name }}</option>
+                            {% else %}
+                                <option value="{{ tag.id }}">{{ tag.name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="body">
+                    <textarea class="body_field" type="text" name="body" placeholder="Content">{{ note['body'] }}</textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

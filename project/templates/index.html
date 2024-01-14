@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+{% block title %}Home{% endblock %}
+
+
+{% block header %}
+    <div class="navigation">
+        <a href="/" class="current"><img src="static/Images/Home.png">
+            <h3>Home</h3>
+        </a>
+        <a href="/tasks"><img src="static/Images/To do list.png">
+            <h3>Tasks</h3>
+        </a>
+        <a href="/habbits"><img src="static/Images/Checked.png">
+            <h3>Habits</h3>
+        </a>
+        <a href="/notes"><img src="static/Images/Notes.png">
+            <h3>Notes</h3>
+        </a>
+    </div>
+{% endblock %}
+
+{% block main %}
+    <div class="page_content">
+        <div class="top">
+            <div class="location">
+                <img src="static/Images/Home.png">
+                <h3>Home</h3>
+            </div>
+            <div>
+                {% if error %}
+                    <p style="color: red;">Cannot delete tag because it is currently in use.</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="homepage">
+            <div class="todo_and_habbits">
+                <div class="todo">
+                    <h2 class="home_box_title">TASKS</h2>
+                    <div class="list_home">
+                        {% for task in tasks[:5] %}
+                            <div class="small_note">
+                                <div class="task_habbit_or_note_title">
+                                    <div style="width: 1.25rem; height: 1.25rem; border-radius: 0.3125rem; background: {{ task.tag }};"></div>
+                                    <h3>{{ task.name[:38] }}{% if task.name|length >= 36 %}...{% endif %}</h3>
+                                </div>
+                                <div>
+                                    <form action="/tasks" method="post">
+                                        <input type="text" name="location" value="home" readonly style="display: none;">
+                                        <input type="text" name="task_id" value="{{ task.id }}" readonly style="display: none;">
+                                        <input type="text" name="action" value="check_or_uncheck" readonly style="display: none;">
+                                        <input type="text" name="value" value="{{ task.status }}" readonly style="display: none;">
+                                        <button type="submit" class="submit">
+                                            {% if task.status == "True" %}
+                                                <img class="check" src="static/Images/checked.svg">
+                                            {% else %}
+                                                <img class="check" src="static/Images/unchecked.svg">
+                                            {% endif %}
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="habits">
+                    <h2 class="home_box_title">HABITS</h2>
+                    <div class="list_home">
+                        {% for habit in habits[:5] %}
+                            <div class="small_note">
+                                <div class="task_habbit_or_note_title">
+                                    <div style="width: 1.25rem; height: 1.25rem; border-radius: 0.3125rem; background: {{ habit.tag }};"></div>
+                                    <h3>{{ habit.name[:38] }}{% if habit.name|length >= 36 %}...{% endif %}</h3>
+                                </div>
+                                <div class="check">
+                                    <form action="/habbits" method="post">
+                                        <input type="text" name="location" value="home" readonly style="display: none;">
+                                        <input type="text" name="habbit_id" value="{{ habit.habbit_id }}" style="display: none;">
+                                        <input type="text" name="completed" value="{{ habit.completed }}" style="display: none;">
+                                        <button type="submit">
+                                            {% if habit.completed == "False"%}
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 60 60" fill="none">
+                                                    <circle cx="30" cy="30" r="28" stroke="#90DB62" stroke-width="4" />
+                                                </svg>
+                                            {% elif habit.completed == "True"%}
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 60 60" fill="none">
+                                                    <circle cx="30" cy="30" r="28" stroke="#90DB62" stroke-width="4" />
+                                                    <path d="M11.0742 29.9409L25.1367 44.0034" stroke="black" stroke-width="8.78906" stroke-linecap="round" />
+                                                    <path d="M25.1367 44.0034L39.1992 29.9409L53.2617 15.8784" stroke="black" stroke-width="8.78906" stroke-linecap="round" />
+                                                </svg>
+                                            {% endif %}
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="notes">
+                <h2 class="home_box_title">NOTES</h2>
+                <div class="list_home">
+                    {% for note in notes[:5] %}
+                        <form action="/view_note" method="post">
+                            <input type="text" name="note_id" value="{{ note.note_id }}" style="display: none;">
+                            <button>
+                                <div class="note">
+                                    <div class="task_habbit_or_note_title">
+                                        <div style="width: 1.25rem; height: 1.25rem; border-radius: 0.3125rem; background: {{ note.tag }};"></div>
+                                        <h3 class="note_title">{{ note.title[:90] }}{% if note.title|length >= 90 %}...{% endif %}</h3>
+                                    </div>
+                                    <div>
+                                        <h3>{{ note.date_created[:10] }}</h3>
+                                    </div>
+                                </div>
+                            </button>
+                        </form>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

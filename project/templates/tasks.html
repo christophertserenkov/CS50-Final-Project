@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+{% block title %}Tasks{% endblock %}
+
+{% block header %}
+    <div class="navigation">
+        <a href="/"><img src="static/Images/Home.png">
+            <h3>Home</h3>
+        </a>
+        <a href="/tasks" class="current"><img src="static/Images/To do list.png">
+            <h3>Tasks</h3>
+        </a>
+        <a href="/habbits"><img src="static/Images/Checked.png">
+            <h3>Habits</h3>
+        </a>
+        <a href="/notes"><img src="static/Images/Notes.png">
+            <h3>Notes</h3>
+        </a>
+    </div>
+{% endblock %}
+
+{% block main %}
+    <div class="page_content">
+        <div class="top">
+            <div class="location">
+                <img src="static/Images/To do list.png">
+                <h3>Tasks</h3>
+            </div>
+            <div>
+                <a class="add_button" href="/add_task"><img src="static/Images/add.svg">
+                    <p>Add task</p>
+                </a>
+            </div>
+        </div>
+        <div class="tasks_head">
+            <div style="gap: 1rem;">
+                <h3>Tag</h3>
+                <h3>Name</h3>
+            </div>
+            <div style="gap: 2rem;">
+                <h3>Due date</h3>
+                <div style="display: flex; gap: 1rem; padding: 0;">
+                    <h3>Done</h3>
+                    <h3>Delete</h3>
+                </div>
+            </div>
+        </div>
+        <div class="tasks">
+            {% for task in tasks %}
+                <div class="task">
+                    <div style="width: 70%; gap: 1.5rem;">
+                        <div style="width: 1.25rem; height: 1.25rem; border-radius: 0.3125rem; background-color: {{ task.tag }};"></div>
+                        <h3 class="task_name">{{ task.name }}</h3>
+                    </div>
+                    <div style="gap: 2.5rem;">
+                        <h3>{{ task.due_date }}</h3>
+                        <div style="gap: 2.5rem; display: flex; align-items: center;">
+                            <form action="/tasks" method="post">
+                                <input type="text" name="location" value="tasks" readonly style="display: none;">
+                                <input type="text" name="task_id" value="{{ task.id }}" readonly style="display: none;">
+                                <input type="text" name="action" value="check_or_uncheck" readonly style="display: none;">
+                                <input type="text" name="value" value="{{ task.status }}" readonly style="display: none;">
+                                <button type="submit" class="submit">
+                                    {% if task.status == "True" %}
+                                        <img class="check" src="static/Images/checked.svg">
+                                    {% else %}
+                                        <img class="check" src="static/Images/unchecked.svg">
+                                    {% endif %}
+                                </button>
+                            </form>
+                            <form action="/tasks" method="post">
+                                <input type="text" name="task_id" value="{{ task.id }}" readonly style="display: none;">
+                                <input type="text" name="action" value="delete_task" readonly style="display: none;">
+                                <button type="submit" class="submit"><img class="delete_icon" src="static/Images/Trash.png"></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

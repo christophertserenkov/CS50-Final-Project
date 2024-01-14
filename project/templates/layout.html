@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="static/style.css" rel="stylesheet">
+        <link href="static/Images/browser_icon.png" rel="icon">
+        <title>Productivity: {% block title %}{% endblock %}</title>
+    </head>
+
+    <body>
+        <!--If loged in-->
+        <header>
+            <h3>PRODUCTIVITY APP</h3>
+            <div class="account_and_log_out">
+                <a href="/log_out">
+                    <p>Log out</p>
+                </a>
+                <img src="static/Images/account_icon.svg">
+            </div>
+        </header>
+        <content>
+            <div class="nav_and_citation">
+                <nav>
+                    <div>
+                        <div class="pages">
+                            <div class="title">
+                                <h2>Dashboard</h2>
+                                <div class="divider"></div>
+                            </div>
+                            {% block header %}
+                            {% endblock %}
+                        </div>
+                        <div class="tags_list">
+                            <div class="title">
+                                <h2>Tags</h2>
+                                <div class="divider"></div>
+                            </div>
+                            <div class="tags">
+                                {% for tag in tags %}
+                                    <div class="tag">
+                                        <div style="width: 1rem; height: 1rem; border-radius: 0.3125rem; background: {{ tag.color }};"></div>
+                                        <p style="width: 7rem;">{{ tag.name }}</p>
+                                        <form action="/rename_tag" method="post">
+                                            <input type="text" name="action" value="rename" style="display: none;" readonly>
+                                            <input type="text" name="tag_id" value="{{ tag.id }}" readonly style="display: none;">
+                                            <button type="submit"><img src="static/Images/edit.png"></button>
+                                        </form>
+                                        <form action="/delete_tag" method="post">
+                                            <input type="text" name="tag_id" value="{{ tag.id }}" readonly style="display: none;">
+                                            <button type="submit"><img src="static/Images/Trash.png"></button>
+                                        </form>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/tags"><button><img src="static/Images/add.svg" style="width: 1.25rem; height: 1.25rem;">
+                        <p>Add tags</p>
+                    </button></a>
+                </nav>
+                <p>Icons by <a href="https://www.flaticon.com">Flaticon.com</a></p>
+            </div>
+            <!--End of if-->
+            {% block main %}{% endblock %}
+        </content>
+    </body>
+
+</html>

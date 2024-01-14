@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block title %}Tasks{% endblock %}
+
+{% block header %}
+    <div class="navigation">
+        <a href="/"><img src="static/Images/Home.png">
+            <h3>Home</h3>
+        </a>
+        <a href="/tasks" class="current"><img src="static/Images/To do list.png">
+            <h3>Tasks</h3>
+        </a>
+        <a href="/habbits"><img src="static/Images/Checked.png">
+            <h3>Habbits</h3>
+        </a>
+        <a href="/notes"><img src="static/Images/Notes.png">
+            <h3>Notes</h3>
+        </a>
+    </div>
+{% endblock %}
+
+{% block main %}
+    <div class="page_content">
+        <div class="top">
+            <div class="location">
+                <img src="static/Images/To do list.png">
+                <h3>Tasks / Add task</h3>
+            </div>
+        </div>
+        <div style="width: 100%; border-top: 2px solid #D9D9D9;"></div>
+        <form action="/add_task" method="post" class="add_task_form">
+            <h1>Add Task</h1>
+            <div class="textbox_and_name">
+                <h3>Task name</h3>
+                <input type="text" name="task_name" class="input_field" autofocus>
+            </div>
+            <div class="date_and_tag">
+                <div class="textbox_and_name">
+                    <h3>Due date</h3>
+                    <input type="date" name="due_date" class="input_field">
+                </div>
+                <div class="textbox_and_name">
+                    <h3>Tag</h3>
+                    <select name="tag">
+                        <option value="" selected disabled>Select</option>
+                        {% for tag in tags %}
+                            <option value="{{ tag.id }}">{{ tag.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            {% if not valid %}
+                <p style="color: red;">Please fill in all the fields</p>
+            {% endif %}
+            <div class="cancel_and_submit">
+                <a class="cancel" href="/tasks">Cancel</a>
+                <button type="submit" class="add_button"><img src="static/Images/add.svg">
+                    <p>Add task</p>
+                </button>
+            </div>
+        </form>
+{% endblock %}

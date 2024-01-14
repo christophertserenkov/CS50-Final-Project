@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="static/style.css" rel="stylesheet">
+        <title>Productivity: {% block title %}{% endblock %}</title>
+    </head>
+
+    <body style="display: flex; justify-content: center; align-items: center;">
+        <img src="static/Images/deco_left.svg" class="deco">
+        <form class="login_register" action="/register" method="post">
+            <div class="login_fields">
+                <h1>SIGN UP</h1>
+                <div class="textbox_and_name">
+                    <p>Username</p>
+                    <input name="username" type="text" class="input_field" autofocus>
+                </div>
+                <div class="textbox_and_name">
+                    <p>Password</p>
+                    <input name="password" type="password" class="input_field">
+                </div>
+                <div class="textbox_and_name">
+                    <p>Confirm password</p>
+                    <input name="confirm_password" type="password" class="input_field">
+                </div>
+                {% if message != "none" %}
+                    <p style="color: red;">{{message}}</p>
+                {% endif %}
+            </div>
+            <div class="login_buttons">
+                <a href="/login">Log in</a>
+                <button type="submit">
+                    <p>Sign up</p>
+                </button>
+            </div>
+        </form>
+        <img src="static/Images/deco_right.svg" class="deco">
+    </body>
+
+</html>
